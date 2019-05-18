@@ -6,8 +6,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.luis.bms.system.dao.DictionaryMapper;
 import com.luis.bms.system.dto.Dictionary;
+import com.luis.bms.system.mapper.DictionaryMapper;
 import com.luis.bms.system.service.DictionaryService;
 
 @Service

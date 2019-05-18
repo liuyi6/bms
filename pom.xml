@@ -7,7 +7,7 @@
   <description>后台管理系统</description>
   
   <modules>
-  	<module>bms-sys</module>
+  	<module>bms-system</module>
   	<module>bms-common</module>
   	<module>bms-web</module>
   </modules>
