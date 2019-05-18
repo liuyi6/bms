@@ -33,12 +33,11 @@ public class Menu implements Serializable {
      * 菜单路径
      */
     private String url;
-
+    
     /**
-     * 类型(0为主菜单，1为子菜单)
+     * 1为菜单，2为按钮
      */
     private String type;
-
     /**
      * 排序
      */
@@ -108,19 +107,19 @@ public class Menu implements Serializable {
         this.url = url;
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
     public String getSort() {
         return sort;
     }
 
-    public void setSort(String sort) {
+    public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public void setSort(String sort) {
         this.sort = sort;
     }
 

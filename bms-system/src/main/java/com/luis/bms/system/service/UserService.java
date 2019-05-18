@@ -6,7 +6,7 @@ import java.util.Map;
 import com.luis.bms.common.request.PageRequest;
 import com.luis.bms.common.response.PageResponse;
 import com.luis.bms.common.response.Response;
-import com.luis.bms.system.dto.Menu;
+import com.luis.bms.system.dao.vo.MenuVO;
 import com.luis.bms.system.dto.Role;
 import com.luis.bms.system.dto.User;
 
@@ -56,7 +56,7 @@ public interface UserService {
 	* @return Map<Integer,List<Menu>>  
 	* @throws  
 	*/  
-	Map<Integer, List<Menu>> getMenuByUserId(Integer id);
+	Map<Integer, List<MenuVO>> getMenuByUserId(Integer id);
 	
 	/**  
 	* @Title: addUser  

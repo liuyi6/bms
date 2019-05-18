@@ -3,6 +3,7 @@ package com.luis.bms.system.service;
 import java.util.List;
 import java.util.Map;
 
+import com.luis.bms.system.dao.vo.MenuVO;
 import com.luis.bms.system.dto.Menu;
 
 /**  
@@ -20,5 +21,5 @@ public interface MenuService {
 	* @return Map<Integer,Menu>  
 	* @throws  
 	*/  
-	Map<Integer, List<Menu>> getMneuTree(List<Menu> list);
+	Map<Integer, List<MenuVO>> getMneuTree(List<MenuVO> list);
 }

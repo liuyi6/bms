@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.luis.bms.system.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="com.luis.bms.system.dto.User">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="state" jdbcType="VARCHAR" property="state" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="create_user" jdbcType="INTEGER" property="createUser" />
+    <result column="create_time" jdbcType="BIGINT" property="createTime" />
+    <result column="update_user" jdbcType="INTEGER" property="updateUser" />
+    <result column="update_time" jdbcType="BIGINT" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, user_name, `password`, nick_name, email, phone, `state`, remark, create_user, 
+    create_time, update_user, update_time
+  </sql>
+  <select id="getMenuByUserId" parameterType="java.lang.Integer" resultType="com.luis.bms.system.dao.vo.MenuVO">
+		SELECT DISTINCT
+			menu.id,
+			menu.`name`,
+			menu.parent_id,
+			menu.url,
+			menu.type
+		FROM
+			t_user usr
+		LEFT JOIN t_user_role userrole ON userrole.user_id = usr.id
+		LEFT JOIN t_role role ON role.id = userrole.role_id
+		LEFT JOIN t_role_menu rolemenu ON rolemenu.role_id = role.id
+		LEFT JOIN t_menu menu ON menu.id = rolemenu.menu_id
+		WHERE
+			usr.id = #{id}
+  </select>
+</mapper>

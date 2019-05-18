@@ -14,7 +14,7 @@ import org.springframework.util.CollectionUtils;
 import com.luis.bms.common.request.PageRequest;
 import com.luis.bms.common.response.PageResponse;
 import com.luis.bms.common.response.Response;
-import com.luis.bms.system.dto.Menu;
+import com.luis.bms.system.dao.vo.MenuVO;
 import com.luis.bms.system.dto.Role;
 import com.luis.bms.system.dto.User;
 import com.luis.bms.system.dto.UserRole;
@@ -75,9 +75,9 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public Map<Integer, List<Menu>> getMenuByUserId(Integer id) {
-		Map<Integer, List<Menu>> map = new HashMap<>();
-		List<Menu> list = userMapper.getMenuByUserId(id);
+	public Map<Integer, List<MenuVO>> getMenuByUserId(Integer id) {
+		Map<Integer, List<MenuVO>> map = new HashMap<>();
+		List<MenuVO> list = userMapper.getMenuByUserId(id);
 		if(!CollectionUtils.isEmpty(list)) {
 			map = MenuService.getMneuTree(list);
 		}

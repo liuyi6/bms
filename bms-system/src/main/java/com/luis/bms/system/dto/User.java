@@ -2,6 +2,7 @@ package com.luis.bms.system.dto;
 
 import java.io.Serializable;
 
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**  
@@ -12,6 +13,8 @@ import javax.persistence.Table;
 */
 @Table(name="t_user")
 public class User implements Serializable {
+	
+	@Id
     private Integer id;
 
     private String userName;
