@@ -19,6 +19,12 @@
         <artifactId>bms-common</artifactId>
         <version>0.0.1-SNAPSHOT</version>
   	</dependency>
+  	<dependency>
+  		<groupId>com.luis</groupId>
+        <artifactId>bms-sys</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  	
   </dependencies>
   
 </project>

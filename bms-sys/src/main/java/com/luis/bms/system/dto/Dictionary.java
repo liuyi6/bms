@@ -2,18 +2,23 @@ package com.luis.bms.system.dto;
 
 import java.io.Serializable;
 
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * t_dictionary
  * @author 
  */
+@Table(name="t_dictionary")
 public class Dictionary implements Serializable {
-    private Integer id;
+	@Id
+	private Integer id;
 
     private String type;
 
-    private String key;
+    private String code;
 
-    private String value;
+    private String name;
 
     private String remark;
 
@@ -43,23 +48,23 @@ public class Dictionary implements Serializable {
         this.type = type;
     }
 
-    public String getKey() {
-        return key;
-    }
+    public String getCode() {
+		return code;
+	}
 
-    public void setKey(String key) {
-        this.key = key;
-    }
+	public void setCode(String code) {
+		this.code = code;
+	}
 
-    public String getValue() {
-        return value;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public void setValue(String value) {
-        this.value = value;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public String getRemark() {
+	public String getRemark() {
         return remark;
     }
 

@@ -21,6 +21,10 @@ public class Response<T> implements Serializable{
 	private String resultDesc;
 	
 	private T data;
+	
+	public Response() {
+		setResultState(ResultCode.C_SUCESS);
+	}
 
 	public String getStreamNo() {
 		return streamNo;
