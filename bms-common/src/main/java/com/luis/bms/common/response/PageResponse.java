@@ -12,7 +12,7 @@ public class PageResponse<T> extends Response<T>{
 
 	private static final long serialVersionUID = 2032558206570503559L;
 	
-	private int totalPage;
+	private Long totalPage;
 	
 	private int currentPage;
 	
@@ -20,11 +20,11 @@ public class PageResponse<T> extends Response<T>{
 	
 	private List<T> dataList;
 
-	public int getTotalPage() {
+	public Long getTotalPage() {
 		return totalPage;
 	}
 
-	public void setTotalPage(int totalPage) {
+	public void setTotalPage(Long totalPage) {
 		this.totalPage = totalPage;
 	}
 

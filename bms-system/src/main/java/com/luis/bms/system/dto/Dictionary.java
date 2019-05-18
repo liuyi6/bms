@@ -5,10 +5,13 @@ import java.io.Serializable;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-/**
- * t_dictionary
- * @author 
- */
+/**  
+* @ClassName: Dictionary  
+* @Description: 字典实体类
+* @author luis  
+* @date 2019年5月18日  
+*/
+
 @Table(name="t_dictionary")
 public class Dictionary implements Serializable {
 	@Id
@@ -22,11 +25,11 @@ public class Dictionary implements Serializable {
 
     private String remark;
 
-    private Integer createUser;
+    private String createUser;
 
     private Long ceeateTime;
 
-    private Integer updateUser;
+    private String updateUser;
 
     private Long updateTime;
 
@@ -72,14 +75,6 @@ public class Dictionary implements Serializable {
         this.remark = remark;
     }
 
-    public Integer getCreateUser() {
-        return createUser;
-    }
-
-    public void setCreateUser(Integer createUser) {
-        this.createUser = createUser;
-    }
-
     public Long getCeeateTime() {
         return ceeateTime;
     }
@@ -87,16 +82,24 @@ public class Dictionary implements Serializable {
     public void setCeeateTime(Long ceeateTime) {
         this.ceeateTime = ceeateTime;
     }
+    
+    public String getCreateUser() {
+		return createUser;
+	}
 
-    public Integer getUpdateUser() {
-        return updateUser;
-    }
+	public void setCreateUser(String createUser) {
+		this.createUser = createUser;
+	}
 
-    public void setUpdateUser(Integer updateUser) {
-        this.updateUser = updateUser;
-    }
+	public String getUpdateUser() {
+		return updateUser;
+	}
 
-    public Long getUpdateTime() {
+	public void setUpdateUser(String updateUser) {
+		this.updateUser = updateUser;
+	}
+
+	public Long getUpdateTime() {
         return updateTime;
     }
 
