@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.luis.bms.resource.mapper.AccountMapper">
+  <resultMap id="BaseResultMap" type="com.luis.bms.resource.dto.Account">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="account_id" jdbcType="VARCHAR" property="accountId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="level" jdbcType="VARCHAR" property="level" />
+    <result column="state" jdbcType="VARCHAR" property="state" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="create_account_id" jdbcType="VARCHAR" property="createAccountId" />
+    <result column="create_time" jdbcType="BIGINT" property="createTime" />
+    <result column="update_account_id" jdbcType="VARCHAR" property="updateAccountId" />
+    <result column="update_time" jdbcType="BIGINT" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, account_id, `name`, `password`, `level`, `state`, remark, create_account_id, 
+    create_time, update_account_id, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_account
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_account
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.luis.bms.resource.dto.Account">
+    insert into t_account (id, account_id, `name`, 
+      `password`, `level`, `state`, 
+      remark, create_account_id, create_time, 
+      update_account_id, update_time)
+    values (#{id,jdbcType=INTEGER}, #{accountId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{level,jdbcType=VARCHAR}, #{state,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{createAccountId,jdbcType=VARCHAR}, #{createTime,jdbcType=BIGINT}, 
+      #{updateAccountId,jdbcType=VARCHAR}, #{updateTime,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.luis.bms.resource.dto.Account">
+    insert into t_account
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="accountId != null">
+        account_id,
+      </if>
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="password != null">
+        `password`,
+      </if>
+      <if test="level != null">
+        `level`,
+      </if>
+      <if test="state != null">
+        `state`,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="createAccountId != null">
+        create_account_id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateAccountId != null">
+        update_account_id,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="accountId != null">
+        #{accountId,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="level != null">
+        #{level,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createAccountId != null">
+        #{createAccountId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=BIGINT},
+      </if>
+      <if test="updateAccountId != null">
+        #{updateAccountId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.luis.bms.resource.dto.Account">
+    update t_account
+    <set>
+      <if test="accountId != null">
+        account_id = #{accountId,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        `password` = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="level != null">
+        `level` = #{level,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        `state` = #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createAccountId != null">
+        create_account_id = #{createAccountId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=BIGINT},
+      </if>
+      <if test="updateAccountId != null">
+        update_account_id = #{updateAccountId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.luis.bms.resource.dto.Account">
+    update t_account
+    set account_id = #{accountId,jdbcType=VARCHAR},
+      `name` = #{name,jdbcType=VARCHAR},
+      `password` = #{password,jdbcType=VARCHAR},
+      `level` = #{level,jdbcType=VARCHAR},
+      `state` = #{state,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      create_account_id = #{createAccountId,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=BIGINT},
+      update_account_id = #{updateAccountId,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=BIGINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

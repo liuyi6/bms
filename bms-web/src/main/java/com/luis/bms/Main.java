@@ -12,7 +12,7 @@ import tk.mybatis.spring.annotation.MapperScan;
 * @date 2019年5月18日  
 */
 @SpringBootApplication
-@MapperScan("com.luis.bms.system.mapper")
+@MapperScan("com.luis.bms.resource.mapper")
 public class Main {
 	public static void main(String[] args) {
 		SpringApplication.run(Main.class, args);
