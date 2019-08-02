@@ -15,11 +15,11 @@ import com.luis.bms.common.request.QueryRequest;
 import com.luis.bms.common.response.PageResponse;
 import com.luis.bms.common.response.Response;
 import com.luis.bms.common.utils.ResultCode;
-import com.luis.bms.system.dao.request.AddDictionaryRequet;
-import com.luis.bms.system.dao.request.PageDictionaryRequest;
-import com.luis.bms.system.dao.request.UpdateDictionaryRequet;
-import com.luis.bms.system.dto.Dictionary;
-import com.luis.bms.system.service.DictionaryService;
+import com.luis.bms.resource.dao.request.AddDictionaryRequet;
+import com.luis.bms.resource.dao.request.PageDictionaryRequest;
+import com.luis.bms.resource.dao.request.UpdateDictionaryRequet;
+import com.luis.bms.resource.dto.Dictionary;
+import com.luis.bms.resource.service.DictionaryService;
 
 import io.swagger.annotations.ApiOperation;
 

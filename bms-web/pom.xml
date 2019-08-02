@@ -21,7 +21,7 @@
   	</dependency>
   	<dependency>
   		<groupId>com.luis</groupId>
-        <artifactId>bms-system</artifactId>
+        <artifactId>bms-resource</artifactId>
         <version>0.0.1-SNAPSHOT</version>
   	</dependency>
   	
