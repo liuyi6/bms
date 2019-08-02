@@ -10,7 +10,7 @@ public class AddDictionaryRequet extends Request{
 
     private String code;
 
-    private String name;
+    private String value;
 
     private String remark;
 
@@ -30,12 +30,12 @@ public class AddDictionaryRequet extends Request{
 		this.code = code;
 	}
 
-	public String getName() {
-		return name;
+	public String getValue() {
+		return value;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setValue(String value) {
+		this.value = value;
 	}
 
 	public String getRemark() {

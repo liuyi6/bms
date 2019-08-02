@@ -15,6 +15,7 @@ import com.github.pagehelper.PageInfo;
 import com.luis.bms.common.response.PageResponse;
 import com.luis.bms.common.response.Response;
 import com.luis.bms.common.utils.ResultCode;
+import com.luis.bms.resource.common.StateType;
 import com.luis.bms.resource.dao.request.AddDictionaryRequet;
 import com.luis.bms.resource.dao.request.PageDictionaryRequest;
 import com.luis.bms.resource.dao.request.UpdateDictionaryRequet;
@@ -50,8 +51,8 @@ public class DictionaryServiceImpl implements DictionaryService{
 		if(StringUtils.isNotBlank(request.getCode())) {
 			criteria.andEqualTo("code", request.getCode());
 		}
-		if(StringUtils.isNotBlank(request.getName())) {
-			criteria.andEqualTo("name", request.getName());
+		if(StringUtils.isNotBlank(request.getValue())) {
+			criteria.andEqualTo("value", request.getValue());
 		}
 		if(StringUtils.isNotBlank(request.getRemark())) {
 			criteria.andLike("remark", request.getRemark()+"%");
@@ -88,6 +89,7 @@ public class DictionaryServiceImpl implements DictionaryService{
 		if(CollectionUtils.isEmpty(dictionaryMapper.selectByExample(example))) {
 			Dictionary dictionary = new Dictionary();
 			BeanUtils.copyProperties(request, dictionary);
+			dictionary.setState(StateType.EFFECTIVE.getType());
 			dictionaryMapper.insertSelective(dictionary);
 		} else{
 			response.setResultState(ResultCode.C_DUPLICATE);

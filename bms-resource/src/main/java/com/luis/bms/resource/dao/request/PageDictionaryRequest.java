@@ -16,7 +16,7 @@ public class PageDictionaryRequest extends PageRequest{
 
     private String code;
 
-    private String name;
+    private String value;
 
     private String remark;
 
@@ -36,12 +36,12 @@ public class PageDictionaryRequest extends PageRequest{
 		this.code = code;
 	}
 
-	public String getName() {
-		return name;
+	public String getValue() {
+		return value;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setValue(String value) {
+		this.value = value;
 	}
 
 	public String getRemark() {
