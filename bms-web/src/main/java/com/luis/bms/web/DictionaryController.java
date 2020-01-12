@@ -23,21 +23,21 @@ import com.luis.bms.resource.service.DictionaryService;
 
 import io.swagger.annotations.ApiOperation;
 
-/**  
-* @ClassName: DictionaryControllor  
-* @Description: 字典暴露接口 
-* @author luis  
-* @date 2019年5月18日  
-*/
+/**
+ * @ClassName: DictionaryControllor
+ * @Description: 字典暴露接口
+ * @author luis
+ * @date 2019年5月18日
+ */
 @RequestMapping("/bms/dictionary")
 @Controller
-public class DictionaryControllor {
-	
+public class DictionaryController {
+
 	@Autowired
 	private DictionaryService dictionaryService;
-	
-	@RequestMapping(value = "/listDictionary",method = RequestMethod.GET)
-	@ApiOperation(value="分页查询字典数据")
+
+	@RequestMapping(value = "/listDictionary", method = RequestMethod.GET)
+	@ApiOperation(value = "分页查询字典数据")
 	@ResponseBody
 	public PageResponse<Dictionary> listDictionary(@ModelAttribute PageDictionaryRequest request) {
 		PageResponse<Dictionary> response = new PageResponse<>();
@@ -45,10 +45,10 @@ public class DictionaryControllor {
 		response.setStreamNo(request.getStreamNo());
 		return response;
 	}
-	
+
 	@SuppressWarnings("rawtypes")
-	@RequestMapping(value = "/addDictionary",method = RequestMethod.POST)
-	@ApiOperation(value="新增字典数据")
+	@RequestMapping(value = "/addDictionary", method = RequestMethod.POST)
+	@ApiOperation(value = "新增字典数据")
 	@ResponseBody
 	public Response addDictionary(@ModelAttribute AddDictionaryRequet request) {
 		Response response = new Response<>();
@@ -56,10 +56,10 @@ public class DictionaryControllor {
 		response.setStreamNo(request.getStreamNo());
 		return response;
 	}
-	
+
 	@SuppressWarnings("rawtypes")
-	@RequestMapping(value = "/updateDictionary",method = RequestMethod.PUT)
-	@ApiOperation(value="修改字典数据")
+	@RequestMapping(value = "/updateDictionary", method = RequestMethod.PUT)
+	@ApiOperation(value = "修改字典数据")
 	@ResponseBody
 	public Response updateDictionary(@ModelAttribute UpdateDictionaryRequet request) {
 		Response response = new Response<>();
@@ -67,10 +67,10 @@ public class DictionaryControllor {
 		response.setStreamNo(request.getStreamNo());
 		return response;
 	}
-	
+
 	@SuppressWarnings("rawtypes")
-	@RequestMapping(value = "/delDictionary",method = RequestMethod.DELETE)
-	@ApiOperation(value="删除字典数据")
+	@RequestMapping(value = "/delDictionary", method = RequestMethod.DELETE)
+	@ApiOperation(value = "删除字典数据")
 	@ResponseBody
 	public Response delDictionary(@ModelAttribute KeyRequest request) {
 		Response response = new Response<>();
@@ -78,20 +78,19 @@ public class DictionaryControllor {
 		response.setStreamNo(request.getStreamNo());
 		return response;
 	}
-	
-	@RequestMapping(value = "/queryDicByType",method = RequestMethod.GET)
-	@ApiOperation(value="根据类型查询字典数据")
+
+	@RequestMapping(value = "/queryDicByType", method = RequestMethod.GET)
+	@ApiOperation(value = "根据类型查询字典数据")
 	@ResponseBody
 	public Response<List<Dictionary>> queryDicByType(@ModelAttribute QueryRequest request) {
 		Response<List<Dictionary>> response = new Response<>();
-		if(StringUtils.isNotEmpty(request.getValue())) {
+		if (StringUtils.isNotEmpty(request.getValue())) {
 			response.setData(dictionaryService.getDictionaryByType(request.getValue()));
 		} else {
-			response.setResultState(ResultCode.C_DATA_NOT_IS_NULL);
+			response.setResultState(ResultCode.DATA_NOT_IS_NULL);
 		}
 		response.setStreamNo(request.getStreamNo());
 		return response;
 	}
-	
 
 }

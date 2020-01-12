@@ -2,28 +2,29 @@ package com.luis.bms.common.response;
 
 import java.io.Serializable;
 
+import com.luis.bms.common.utils.LanguageUtil;
 import com.luis.bms.common.utils.ResultCode;
 
-/**  
-* @ClassName: Response  
-* @Description: 统一返回对象
-* @author luis  
-* @date 2019年5月16日  
-*/
-public class Response<T> implements Serializable{
+/**
+ * @ClassName: Response
+ * @Description: 统一返回对象
+ * @author luis
+ * @date 2019年5月16日
+ */
+public class Response<T> implements Serializable {
 
 	private static final long serialVersionUID = 5381699058051240205L;
-	
+
 	private String streamNo;
-	
+
 	private String resultCode;
-	
+
 	private String resultDesc;
-	
+
 	private T data;
-	
+
 	public Response() {
-		setResultState(ResultCode.C_SUCESS);
+		setResultState(ResultCode.SUCESS);
 	}
 
 	public String getStreamNo() {
@@ -57,9 +58,9 @@ public class Response<T> implements Serializable{
 	public void setData(T data) {
 		this.data = data;
 	}
-	
+
 	public void setResultState(String resultCode) {
 		setResultCode(resultCode);
-		setResultDesc(ResultCode.getResultDesc(resultCode));
+		setResultDesc(LanguageUtil.getValue(resultCode));
 	}
 }
